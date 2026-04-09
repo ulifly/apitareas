@@ -1,8 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import conectDB from './config/db.js';
+import tareasRoutes from './routes/tareas.routes.js';
 
 // Cargar variables de entorno
 dotenv.config();
+
+// Conectar a la base de datos
+conectDB();
 
 const PORT = process.env.PORT;
 
@@ -12,13 +17,9 @@ const app = express();
 app.use(express.json());
 
 // Ruta de prueba
-
-app.get('/', (req, res) => {
-    res.send('¡Hola, Bartola ahi te dejo estos dos pesos!');
-});
+app.use('/', tareasRoutes);
 
 // iniciar el servidor
-
 app.listen(PORT, () => {
     console.log(`Servidor escuchando 😉 en http://localhost:${PORT}`);
 });

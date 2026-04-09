@@ -16,3 +16,8 @@ api-tareas/
 ├── .env                # Variables de entorno
 ├── package.json
 |── .gitignore
+
+Create
+Read
+Update
+Delete
